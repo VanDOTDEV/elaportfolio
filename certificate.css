@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f4f6f9;
+    color: #222;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-family: "Anton", sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: #fff;
+    margin-left: 22px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+nav a:hover {
+    color: #ffb703;
+}
+
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #ffb703;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+.section {
+    padding: 60px 8%;
+}
+
+.section h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+
+.certificate-grid img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+.certificate-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+
+
+.certificate-grid img {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .section h2 {
+        font-size: 28px;
+    }
+
+    nav a {
+        margin-left: 14px;
+        font-size: 14px;
+    }
+}

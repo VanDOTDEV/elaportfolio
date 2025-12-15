@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #f0f3f8;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-family: "Anton", sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: #fff;
+    margin-left: 22px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+nav a:hover {
+    color: #ffb703;
+}
+
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #ffb703;
+    transition: width 0.3s ease;
+}
+
+.section {
+    padding: 50px 8%;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+.journal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.journal-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.journal-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.journal-card img {
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.journal-card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.image-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.image-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.image-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    transform: scale(0.85);
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.image-overlay.active img {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    transform: rotate(0deg) scale(0.7);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.image-overlay.active .close-btn {
+    opacity: 1;
+    transform: rotate(90deg) scale(1);
+}
+
+.close-btn:hover {
+    transform: rotate(180deg) scale(1.2);
+}
